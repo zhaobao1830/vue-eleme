@@ -20,14 +20,28 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import header from '@/components/header/header.vue';
+  import header from '@/components/header/header'
 
+  const ERR_OK = 0
   export default {
     name: 'app',
+    data () {
+      return {
+        seller: {}
+      }
+    },
+    created () {
+      this.$http.get('/api/seller').then((response) => {
+        response = response.body
+        if (response.error === ERR_OK) {
+          this.seller = response.data
+        }
+      })
+    },
     components: {
       'v-header': header
     }
-  };
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
