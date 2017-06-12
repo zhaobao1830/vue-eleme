@@ -33,11 +33,8 @@
     created () {
       this.$http.get('/api/seller').then((response) => {
         response = response.body
-        console.log(response)
-        console.log(response.errno)
         if (response.errno === ERR_OK) {
           this.seller = response.data
-          console.log(this.seller)
         }
       })
     },
