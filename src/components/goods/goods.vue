@@ -60,7 +60,6 @@
     },
     computed: {
       currentIndex () {
-        console.log(this.listHeight.length)
         for (let i = 0; i < this.listHeight.length; i++) {
           let height1 = this.listHeight[i]
           let height2 = this.listHeight[i + 1]
@@ -86,6 +85,8 @@
     },
     methods: {
       selectMenu (index, event) {
+        // 在pc端，会触发原生点击事件，better-scroll里面，点击事件多了一个_constructed属性，所以可以用下面的方法来
+        // 判断，现在是better-scroll点击事件
         if (!event._constructed) {
           return
         }
@@ -103,7 +104,7 @@
         })
 //        绑定一个scroll方法，获取screenY值
         this.foodsScroll.on('scroll', (pos) => {
-          this.screenY = Math.abs(Math.round(pos.y))
+          this.scrollY = Math.abs(Math.round(pos.y))
         })
       },
       _calculateHeight () {
