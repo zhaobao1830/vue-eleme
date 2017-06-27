@@ -142,7 +142,6 @@
           this.fold = true
           return false
         }
-        console.log(this.fold)
         let show = !this.fold
         if (show) {
           this.$nextTick(() => {
