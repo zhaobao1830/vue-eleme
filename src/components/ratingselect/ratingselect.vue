@@ -1,6 +1,6 @@
 <template>
   <div class="ratingselect">
-    <div class="rating-type">
+    <div class="rating-type border-1px">
       <span @click="select(2,$event)" class="block positive" :class="{'active':selectType===2}">
         {{desc.all}}<span class="count">{{ratings.length}}</span></span>
       <span @click="select(0,$event)" class="block positive" :class="{'active':selectType===0}">
