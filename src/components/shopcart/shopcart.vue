@@ -158,17 +158,6 @@
       }
     },
     methods: {
-      drop (el) {
-        for (let i = 0; i < this.balls.length; i++) {
-          let ball = this.balls[i]
-          if (!ball.show) {
-            ball.show = true
-            ball.el = el
-            this.dropBalls.push(ball)
-            return
-          }
-        }
-      },
       toggleList () {
         if (!this.totalCount) {
           return
@@ -192,7 +181,21 @@
       addFood (target) {
         this.drop(target)
       },
+      drop (el) {
+        console.log(el)
+        for (let i = 0; i < this.balls.length; i++) {
+          let ball = this.balls[i]
+          console.log(this.balls)
+          if (!ball.show) {
+            ball.show = true
+            ball.el = el
+            this.dropBalls.push(ball)
+            return
+          }
+        }
+      },
       beforeDrop (el) {
+        console.log('tttt')
         let count = this.balls.length
         while (count--) {
           let ball = this.balls[count]
